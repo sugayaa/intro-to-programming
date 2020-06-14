@@ -114,6 +114,34 @@ Os tipos mais comuns em C++ são:
 * char - caractere - "a", "b", "c"
 * string - texto ex.: "Olá Mundo!"
 
+Variáveis são como caixinhas guardando um valor para ser usado mais tarde, e caixinhas essas que podem ter seus valores acessados e alterados.
+
+Para brincar:
+
+```C
+#include<iostream>
+using namespace std;
+
+int main(){
+    int tres = 3;
+    cout << "Este é o numero três (" << tres << ")" << endl;
+}
+```
+
+Alcançamos o mesmo resultado do último código desta vez usando uma variável.
+E a parte bacana das variáveis é que elas não precisam ter o mesmo valor o programa inteiro, e nem precisamos saber o valor dela em específico no momento que estamos escrevendo.
+
+```C
+#include<iostream>
+using namespace std;
+
+int main(){
+    int resultado = 3+4-8+4-48+178-39+8+8-478+302-147;
+    cout << "Este não é o numero três (" << resultado << ")" << endl;
+}
+```
+
+
 ### Atribuição
 
 Podemos atribuir valor a uma variável assim que a declaramos, exemplo:
@@ -150,4 +178,4 @@ Qual o valor de inicial após a execução das duas linhas? Esse tipo de código
 
 Lembre da regra da resolução da direita primeiro. Qual valor inicial tinha antes de entrar naquela linha? 5? Então o programa resolverá primeiro, 5+2, e depois atribuirá o resultado, 7, dentro de inicial.
 
-Então a resposta é inicial conterá o valor 7.
+Então a resposta é: inicial conterá o valor 7.
