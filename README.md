@@ -17,7 +17,7 @@ int main(){
 }
 ```
 
-Em essência esse o corpo mínimo de um código em C++. Ali dentro das chaves há o texto _return 0_ mas ele não é estritamente necessário. É apenas um jeito do programa falar para o sistema operacional que ele terminou de executar sem nenhum erro.
+Em essência esse é o corpo mínimo de um código em C++. Ali dentro das chaves há o texto _return 0_ mas ele não é estritamente necessário. É apenas um jeito do programa falar para o sistema operacional que ele terminou de executar sem nenhum erro.
 
 ### O que é aquela linha estranha no começo ? 
 
@@ -179,3 +179,24 @@ Qual o valor de inicial após a execução das duas linhas? Esse tipo de código
 Lembre da regra da resolução da direita primeiro. Qual valor inicial tinha antes de entrar naquela linha? 5? Então o programa resolverá primeiro, 5+2, e depois atribuirá o resultado, 7, dentro de inicial.
 
 Então a resposta é: inicial conterá o valor 7.
+
+### cin
+
+O cin serve para ler valores que o usuário do programa fornecer. Mas não faria sentido ler algo, se não fossemos guardar, por isso passamos por variáveis antes. Diferente do cout, ele usa _>>_, ao invés de _<<_, eu gosto de pensar como, se cin estamos lendo, estamos jogando valores para dentro do programa, então apontamos para dentro _>>_, como cout estamos levando valores do programa para fora então usamos _<<_, apontando para fora. Mas também não há problema em trocar, o compilador vai reclamar caso algo estranho aconteça.
+
+Mão na massa:
+
+```C
+#include<iostream>
+using namespace std;
+
+int main(){
+    float valor_decimal;
+    cin >> valor_decimal;
+    cout << "Valor decimal fornecido é: " << valor_decimal << endl;
+
+    return 0;
+}
+```
+
+P.S.: Nas linguagens de programação em geral usamos valores decimais como nos EUA, o caracter . é usado como a vírgula aqui no Brasil. E a vírgula simplesmente não é usada como maneira de delimitar nada quanto a valores decimais.
