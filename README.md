@@ -1,8 +1,6 @@
 # intro-to-programming
 
-Vamos lá. Essa introdução vai ser bastante prática, afinal estamos com o tempo apertado.
-
-Vou usar o C++ por ser mais alto nível. Por alto nível entenda que o código faz algumas coisas de forma automática, sem que você tenha que se preocupar com alguns detalhes.
+Vou usar o C++ ao invés de C por ser mais alto nível. Por alto nível entenda que o código faz algumas coisas de forma automática, sem que você tenha que se preocupar com alguns detalhes.
 
 Bom, de ante-mão é necessário saber que vamos escrever o código em texto, e após isso, "compilar" o arquivo texto criado, compilar é o ato de transformar o nosso código texto em executável. Há vários detalhes que estou deixando de fora, mas vamos lá.
 
@@ -21,7 +19,7 @@ Em essência esse é o corpo mínimo de um código em C++. Ali dentro das chaves
 
 ### O que é aquela linha estranha no começo ? 
 
-É um comando especial para incluir comandos prontos. Em especial iostream é a responsável por incluir os comandas de entrada e saída no programa.
+É um comando especial para incluir comandos prontos. Em especial iostream é a responsável por incluir os comandas de entrada e saída no programa. Entenda entrada e saída como: entrada, inserir alguma informação no programa usando o teclado, e saída como, mostrar alguma informação na tela.
 
 ### O que é entrada e saída ?
 
@@ -29,11 +27,11 @@ Em essência esse é o corpo mínimo de um código em C++. Ali dentro das chaves
 
 ### O que é esse int main() e por que essas chaves ao redor ?
 
-Int main é a função principal de todo programa em C ou C++. Toda vez que o programa for executado, a _função_ int main será o ponto inicial, mesmo que haja código escrito antes dela, assim que executado o programa pulará para a função int main.
+Int main é a função principal de todo programa em C ou C++. Toda vez que o programa for executado, a _função_ int main será o ponto inicial, mesmo que haja código escrito antes dela, assim que iniciado o programa, a execução começará na função int main.
 
 As chaves delimitam um escopo, um trecho. Então tudo que estiver entre aquelas duas chaves será executado em ordem quando o programa iniciar.
 
-P.S.: É importante ressaltar a ordem que o programa é executado, sempre de baixo para cima, uma instrução após a outra, a menos que explicitamente indicado para seguir outro fluxo, com outros comandos que vamos ver mais para frente.
+P.S.: É importante ressaltar a ordem que o programa é executado, sempre de cima para baixo, uma instrução após a outra, a menos que explicitamente indicado para seguir outro fluxo, com outros comandos que vamos ver mais para frente.
 
 
 ## Mas onde escrevo esse código ? Como compilo ? 
@@ -180,6 +178,8 @@ Lembre da regra da resolução da direita primeiro. Qual valor inicial tinha ant
 
 Então a resposta é: inicial conterá o valor 7.
 
+## Entrada de Dados
+
 ### cin
 
 O cin serve para ler valores que o usuário do programa fornecer. Mas não faria sentido ler algo, se não fossemos guardar, por isso passamos por variáveis antes. Diferente do cout, ele usa _>>_, ao invés de _<<_, eu gosto de pensar como, se cin estamos lendo, estamos jogando valores para dentro do programa, então apontamos para dentro _>>_, como cout estamos levando valores do programa para fora então usamos _<<_, apontando para fora. Mas também não há problema em trocar, o compilador vai reclamar caso algo estranho aconteça.
@@ -199,4 +199,144 @@ int main(){
 }
 ```
 
-P.S.: Nas linguagens de programação em geral usamos valores decimais como nos EUA, o caracter . é usado como a vírgula aqui no Brasil. E a vírgula simplesmente não é usada como maneira de delimitar nada quanto a valores decimais.
+P.S.: Nas linguagens de programação em geral usamos valores decimais como nos EUA, o caracter _._ é usado como a vírgula aqui no Brasil. E a vírgula(_,_) simplesmente não é usada como maneira de delimitar valores decimais.
+
+## Alterando o fluxo do programa
+
+### Condicionais: _if_ e _else_
+
+Quando programamos em _C++_, o código inteiro é executado de forma sequencial, começando na porção _main()_, toda a instrução é executada uma após a outra até o _return_, consequência disso é que ainda não é possível realizar decisões ou repetir instruções, _"como assim?"_ você pode me perguntar, vamos lá.
+
+Todas as decisões que podemos tomar, são antes do código começar a ser executado, enquanto escrevemos, suponhamos que eu queira fazer um programa que leia um valor inteiro e imprima na tela se o valor é negativo ou positivo, parece simples não? Como podemos fazer isso com o que vimos até agora?
+
+Para esse exato propósito existem as instruções condicionais. Trazendo para a linguagem natural, podemos escrevê-las como:
+
+<pre><code><b>se</b> uma condição for verdadeira:
+	realizamos uma instrução.
+<b>caso contrário</b>:
+	realizamos outra.
+</code></pre>
+
+A parte do _caso contrário_ pode ser suprimida, dessa forma podemos ter apenas o _caso_.
+
+<pre><code><b>se</b> uma condição for verdadeira:
+	realizamos uma instrução.
+...prosseguimos com o resto do código...
+</code></pre>
+
+ Apesar do código estar escrito em sequência uma porção do código pode ser pulado, sem que sua execução ocorra. Vou mostrar um exemplo já escrevendo o código em C++.
+ 
+```C
+#include<iostream>
+using namespace std;
+
+int main(){
+    int numero = 10;
+    
+    if (numero == 10){
+    	cout << "O valor de numero é 10" << endl;
+    }
+
+    return 0;
+}
+```
+
+Ao executarmos nosso programa a saída, texto impresso na tela, será:
+
+<pre><code>
+O valor de numero é 10
+</code></pre>
+
+Agora experimente mudar a linha,
+
+```C
+	int numero = 10;
+```
+
+para, 
+
+```C
+	int numero = 9;
+```
+
+Não aconteceu nada certo? 
+Essa é a função dos concidicionais, fazer um seletor, que dirá se aquela ou outra porção de código deve ser executada.
+Vamos testar outros exemplos agora:
+
+```C
+#include<iostream>
+using namespace std;
+
+int main(){
+    int numero = 9;
+    
+    if (numero == 10){
+    	cout << "O valor de numero é 10" << endl;
+    }else{
+    	cout << "Esse número não é 10" << endl;
+    }
+
+    return 0;
+}
+```
+
+E aí, captou?
+"Tá, beleza, entendi, mas por que o ==, ao invés do =, como isso funciona?"
+Então vamos partir para os comparadores.
+
+### Comparadores
+Comparadores são usados para obtermos valores verdade, apesar da expressão meio estranha é apenas, Verdadeiro ou Falso. Por exemplo, 3 é menor do que 4? 
+
+Em essência é isso que estamos fazendo, essa expressão no caso é verdadeira, mas e caso escrevéssemos 3 maior que 4, isso é verdade?
+Acho que não. Logo, quando escrevermos algo assim no nosso código, a expressão será trocado pra falso.
+
+No entanto escrever expressões com dois valores constantes assim, 3 e 4, não faz muito sentido. Usualmente utilizamos esses comparadores com variáveis, exemplo,
+
+```C
+#include<iostream>
+
+int main(){
+	int numero;
+	cin >> numero;
+	if (numero == 10){
+		cout << "O valor digitado foi 10" << endl;
+	}else{
+		cout << "O valor digitado não foi 10" << endl;
+	}
+	
+	return 0;
+}
+```
+
+Você deve ter percebido que usamos o sinal = (igual), uma vez para realizarmos atribuições anteriormente. Quando usamos == (igual igual), estamos fazendo uma comparação.
+Outras comparações,
+
+Grafia | Significado
+--------|--------------
+< | menor que
+> | maior que
+<= | menor ou igual que
+>= | maior ou igual que
+== | igual a
+!= | diferente de
+! | negação
+
+O símbolo de negação é o menos comum, mas muito poderoso, podemos juntá-lo com muita coisa. Não há motivo para, mas podemos fazer algo assim:
+
+```C
+!(numero > 10)
+```
+
+Se o número não for maior que 10, toda essa expressão será transformada em verdadeiro.
+
+**Bugando o cérebro**: perceba que,
+
+```C
+(!(numero > 10))
+```
+
+é a mesma coisa que:
+
+```C
+(numero <= 10)
+```
