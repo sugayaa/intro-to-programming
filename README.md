@@ -311,15 +311,15 @@ int main(){
 Você deve ter percebido que usamos o sinal = (igual), uma vez para realizarmos atribuições anteriormente. Quando usamos == (igual igual), estamos fazendo uma comparação.
 Outras comparações,
 
-Grafia  | Significado
-------- | --------------
-<       | menor que
->       | maior que
-<=      | menor ou igual que
->=      | maior ou igual que
-==      | igual a
-!=      | diferente de
-!       | negação
+Grafia  | Significado           |
+---     | ---                   |
+<       | menor que             |
+>       | maior que             |
+<=      | menor ou igual que    |
+>=      | maior ou igual que    |
+==      | igual a               |
+!=      | diferente de          |
+!       | negação               |
 
 O símbolo de negação é o menos comum, mas muito poderoso, podemos juntá-lo com muita coisa. Não há motivo para, mas podemos fazer algo assim:
 
